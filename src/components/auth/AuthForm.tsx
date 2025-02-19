@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -10,8 +10,15 @@ export function AuthForm() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  const [borderWidth, setBorderWidth] = useState(2);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    // Adjust border width based on input fields filled
+    const filledFields = [email, password].filter(Boolean).length;
+    setBorderWidth(2 + filledFields * 2);
+  }, [email, password]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -40,7 +47,10 @@ export function AuthForm() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100">
-      <div className="w-full max-w-md bg-white/90 backdrop-blur-sm rounded-2xl p-10">
+      <div
+        className={`w-full max-w-md bg-white/90 backdrop-blur-sm rounded-2xl p-10 border-purple-600 transition-all duration-300`}
+        style={{ borderWidth }}
+      >
         <div className="flex flex-col items-center">
           <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-4">
             <Radio className="w-9 h-9 text-white" />
