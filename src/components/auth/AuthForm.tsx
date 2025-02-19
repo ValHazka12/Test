@@ -39,10 +39,10 @@ export function AuthForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-purple-100">
+    <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="w-full max-w-md bg-white rounded-2xl p-10 border-2 border-purple-500">
         <div className="flex flex-col items-center">
-          <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-4">
+          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4">
             <Radio className="w-9 h-9 text-white" />
           </div>
           <h2 className="text-center text-2xl font-bold text-purple-900 mb-2">
