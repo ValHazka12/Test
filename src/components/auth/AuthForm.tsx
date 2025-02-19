@@ -46,7 +46,7 @@ export function AuthForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100">
+    <div className="min-h-screen flex items-center justify-center bg-white">
       <div
         className={`w-full max-w-md bg-white/90 backdrop-blur-sm rounded-2xl p-10 border-purple-600 transition-all duration-300`}
         style={{ borderWidth }}
@@ -56,7 +56,7 @@ export function AuthForm() {
             <Radio className="w-9 h-9 text-white" />
           </div>
           <h2 className="text-center text-2xl font-bold text-purple-900 mb-2">
-            RFID Control de Inventario
+            RFID Inventory Control
           </h2>
         </div>
         <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
