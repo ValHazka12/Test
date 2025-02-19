@@ -48,7 +48,7 @@ export function AuthForm() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
       <div
-        className={`w-full max-w-md bg-white/90 backdrop-blur-sm rounded-2xl p-10 border-purple-600 transition-all duration-300`}
+        className={`w-full max-w-md bg-purple-50 backdrop-blur-sm rounded-2xl p-10 border-purple-600 transition-all duration-300`}
         style={{ borderWidth }}
       >
         <div className="flex flex-col items-center">
