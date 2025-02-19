@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -10,15 +10,8 @@ export function AuthForm() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
-  const [borderWidth, setBorderWidth] = useState(2);
 
-  useEffect(() => {
-    // Adjust border width based on input fields filled
-    const filledFields = [email, password].filter(Boolean).length;
-    setBorderWidth(2 + filledFields * 2);
-  }, [email, password]);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -46,11 +39,8 @@ export function AuthForm() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-blue-900">
-      <div
-        className={`w-full max-w-md bg-purple-50 backdrop-blur-sm rounded-2xl p-10 border-purple-600 transition-all duration-300`}
-        style={{ borderWidth }}
-      >
+    <div className="min-h-screen flex items-center justify-center bg-purple-100">
+      <div className="w-full max-w-md bg-white rounded-2xl p-10 border-2 border-purple-500">
         <div className="flex flex-col items-center">
           <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-4">
             <Radio className="w-9 h-9 text-white" />
@@ -74,7 +64,7 @@ export function AuthForm() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none relative block w-full px-4 py-3 border border-purple-200 placeholder-purple-400 text-purple-900 rounded-lg focus:outline-none focus:border-purple-500 text-base bg-white/50"
+                  className="appearance-none relative block w-full px-4 py-3 border border-purple-200 placeholder-purple-400 text-purple-900 rounded-lg focus:outline-none focus:border-purple-500 text-base bg-white"
                   placeholder="Enter your email"
                 />
               </div>
@@ -92,7 +82,7 @@ export function AuthForm() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none relative block w-full px-4 py-3 border border-purple-200 placeholder-purple-400 text-purple-900 rounded-lg focus:outline-none focus:border-purple-500 text-base bg-white/50"
+                  className="appearance-none relative block w-full px-4 py-3 border border-purple-200 placeholder-purple-400 text-purple-900 rounded-lg focus:outline-none focus:border-purple-500 text-base bg-white"
                   placeholder="Enter your password"
                 />
               </div>
